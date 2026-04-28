@@ -51,7 +51,7 @@ body {
   color: black;
   padding: 10px;
   border-radius: 10px;
-  letter-spacing: 8px;
+  letter-spacing: 6px;
   font-size: 18px;
 }
 
@@ -61,7 +61,6 @@ body {
 </style></head><body><div class="container">
   <div class="card"><div class="teddy">🧸🎀</div>
 
-<!-- 💖 Cute cartoon couple image -->
 <img class="photo" src="https://i.pinimg.com/564x/3c/9f/0d/3c9f0d6e1b8c0e7c2c52c0c5e2c8c4b7.jpg">
 
 <h2>Enter Passcode 💌</h2>
@@ -87,10 +86,7 @@ body {
 <p id="msg"></p>
 
   </div>
-</div><!-- 🎵 Music --><audio id="bgmusic" loop>
-  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
-</audio><script>
-
+</div><script>
 let pass = "";
 
 function press(num){
@@ -110,154 +106,21 @@ function clearPass(){
 }
 
 function check(){
-  if(pass === "18102025"){   // 🔐 password
+  if(pass === "18102025"){
 
     document.body.innerHTML = `
     <div style="text-align:center; padding:20px; background:#b71c1c; color:white; min-height:100vh;">
-
       <h1>Happy Birthday Ayush 🎂❤️</h1>
-
-      <p>You are my favorite person 💕</p>
-      <p>From 18 Oct 2025 till forever… it's always you 🥹✨</p>
-      <p>You make my life so beautiful 🤍</p>
-      <p>I’m really lucky to have you 💖</p>
-      <p>Happy Birthday my cutu 🧸❤️</p>
-      <p>I love you always 💌</p>
-
-      <div class="cake">
-        <div class="candle"></div>
-      </div>
-
+      <p>To my favorite person 💕</p>
+      <p>You make my life so beautiful 🥹</p>
+      <p>I love you always 💖</p>
     </div>
-
-    <style>
-      .cake {
-        width: 120px;
-        height: 80px;
-        background: #ff8a80;
-        margin: 40px auto;
-        border-radius: 10px;
-        position: relative;
-      }
-
-      .candle {
-        width: 10px;
-        height: 30px;
-        background: white;
-        position: absolute;
-        top: -30px;
-        left: 55px;
-      }
-
-      .candle::after {
-        content: '';
-        width: 10px;
-        height: 10px;
-        background: yellow;
-        border-radius: 50%;
-        position: absolute;
-        top: -10px;
-        animation: flicker 0.5s infinite alternate;
-      }
-
-      @keyframes flicker {
-        from { opacity: 1; }
-        to { opacity: 0.4; }
-      }
-    </style>`;
-
-let music = document.getElementById("bgmusic");
-if(music){
-  music.play().catch(() => {});
-}
-
-} else {
-document.getElementById("msg").innerText = "Wrong code 😜";
-clearPass();
-}
-}
-
-</script></body>
-</html>function clearPass(){
-  pass = "";
-  updateDisplay();
-}
-
-function check(){
-  if(pass == "21072025"){   // 🔐 CHANGE THIS CODE
-    document.body.innerHTML = `
-      <h1>Happy Birthday Ayush 🎂❤️</h1>
-
-<p>To my favorite person, my safe place, and my biggest smile 💕</p>
-
-<p>I don’t know how you do it, but you make even the simplest days feel so special 🥹✨</p>
-
-<p>Being with you feels easy, comfortable, and full of happiness… like I found my home in a person 🤍</p>
-
-<p>Thank you for being you — for your care, your love, and all the little things you do that mean so much to me 💖</p>
-
-<p>I’m really lucky to have you in my life… and I hope I can keep making you as happy as you make me 😄</p>
-
-<p>Once again, Happy Birthday my cutu 🧸❤️</p>
-
-<p>I love you… always 💌</p>
-<div class="cake">
-      <div class="candle"></div>
-    </div>
-
-  </div>
-
-  <style>
-    .cake {
-      width: 120px;
-      height: 80px;
-      background: #ff8a80;
-      margin: 40px auto;
-      border-radius: 10px;
-      position: relative;
-    }
-
-    .candle {
-      width: 10px;
-      height: 30px;
-      background: white;
-      position: absolute;
-      top: -30px;
-      left: 55px;
-    }
-
-    .candle::after {
-      content: '';
-      width: 10px;
-      height: 10px;
-      background: yellow;
-      border-radius: 50%;
-      position: absolute;
-      top: -10px;
-      left: 0;
-      animation: flicker 0.5s infinite alternate;
-    }
-
-    @keyframes flicker {
-      from { opacity: 1; }
-      to { opacity: 0.4; }
-    }
-  </style>
     `;
-  // play music
-  let music = document.getElementById("bgmusic");
-  if(music){
-    music.play();
-  }
-    
+
   } else {
     document.getElementById("msg").innerText = "Wrong code 😜";
     clearPass();
   }
 }
-
-  <audio id="bgmusic" loop>
-  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
-</audio>
 </script></body>
 </html>
