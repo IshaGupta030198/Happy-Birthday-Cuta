@@ -4,9 +4,24 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #b71c1c;
-  color: white;
+  background: linear-gradient(135deg, #e6d6ff, #f5e9ff);
+  color: #4a2c6d;
   text-align: center;
+  overflow: hidden;
+}
+
+/* Floating hearts */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  color: red;
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100vh); opacity: 0; }
 }
 
 .container {
@@ -14,17 +29,17 @@ body {
 }
 
 .card {
-  background: #d32f2f;
+  background: #f3e6ff;
   padding: 20px;
   border-radius: 20px;
   width: 300px;
   margin: auto;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
 .photo {
-  width: 140px;
-  height: 140px;
+  width: 130px;
+  height: 130px;
   border-radius: 15px;
   object-fit: cover;
   margin-bottom: 10px;
@@ -39,7 +54,7 @@ body {
 
 .key {
   background: white;
-  color: #d32f2f;
+  color: #6a1b9a;
   font-size: 20px;
   padding: 12px;
   border-radius: 50%;
@@ -54,17 +69,13 @@ body {
   letter-spacing: 6px;
   font-size: 18px;
 }
-
-.teddy {
-  font-size: 30px;
-}
 </style></head><body><div class="container">
-  <div class="card"><div class="teddy">🧸🎀</div>
+  <div class="card"><div>🧸🎀 ❤️ 💜 ❤️</div>
 
 <img class="photo" src="https://i.pinimg.com/564x/3c/9f/0d/3c9f0d6e1b8c0e7c2c52c0c5e2c8c4b7.jpg">
 
 <h2>Enter Passcode 💌</h2>
-<p>Hint: 18 Oct 2025 💕</p>
+<p>Hint: our first date 💕</p>
 
 <div class="display" id="display">--------</div>
 
@@ -86,7 +97,22 @@ body {
 <p id="msg"></p>
 
   </div>
-</div><script>
+</div><!-- 🎵 Music --><audio id="bgmusic" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio><script>
+
+// Floating hearts
+setInterval(() => {
+  let heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (15 + Math.random()*20) + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 6000);
+}, 500);
+
 let pass = "";
 
 function press(num){
@@ -106,21 +132,71 @@ function clearPass(){
 }
 
 function check(){
-  if(pass === "18102025"){
+  if(pass === "21072025"){
 
     document.body.innerHTML = `
-    <div style="text-align:center; padding:20px; background:#b71c1c; color:white; min-height:100vh;">
+    <div style="text-align:center; padding:30px; background:#f5e9ff; color:#4a2c6d; min-height:100vh;">
+
       <h1>Happy Birthday Ayush 🎂❤️</h1>
-      <p>To my favorite person 💕</p>
+
+      <p>❤️ 💜 ❤️</p>
+
+      <p>You are my favorite person 💕</p>
       <p>You make my life so beautiful 🥹</p>
       <p>I love you always 💖</p>
-    </div>
-    `;
 
-  } else {
-    document.getElementById("msg").innerText = "Wrong code 😜";
-    clearPass();
-  }
+      <div class="cake">
+        <div class="candle"></div>
+      </div>
+
+    </div>
+
+    <style>
+      .cake {
+        width: 120px;
+        height: 80px;
+        background: #ff8a80;
+        margin: 40px auto;
+        border-radius: 10px;
+        position: relative;
+      }
+
+      .candle {
+        width: 10px;
+        height: 30px;
+        background: white;
+        position: absolute;
+        top: -30px;
+        left: 55px;
+      }
+
+      .candle::after {
+        content: '';
+        width: 10px;
+        height: 10px;
+        background: yellow;
+        border-radius: 50%;
+        position: absolute;
+        top: -10px;
+        animation: flicker 0.5s infinite alternate;
+      }
+
+      @keyframes flicker {
+        from { opacity: 1; }
+        to { opacity: 0.4; }
+      }
+    </style>`;
+
+let music = document.getElementById("bgmusic");
+if(music){
+  music.play().catch(() => {});
 }
+
+} else {
+document.getElementById("msg").innerText = "Wrong code 😜";
+clearPass();
+}
+}
+
 </script></body>
 </html>
