@@ -73,12 +73,81 @@ function clearPass(){
 }
 
 function check(){
-  if(pass === "21072025"){
-    document.body.innerHTML = "<h1>Happy Birthday Ayush 🎂❤️</h1><p>I love you 💖</p>";
-  } else {
-    document.getElementById("msg").innerText = "Wrong code 😜";
-    clearPass();
+if(pass === "21072025"){
+
+document.body.innerHTML = `
+<div style="text-align:center; padding:30px; background:#f3e6ff; min-height:100vh; font-family:Arial;">
+
+  <h1 style="color:#6a1b9a;">Happy Birthday Ayush 🎂❤️</h1>
+
+  <p style="color:#6a1b9a;">You are my favorite person 💕</p>
+  <p style="color:#6a1b9a;">You make my life so beautiful 🥹</p>
+  <p style="color:#6a1b9a;">I love you always 💖</p>
+
+  <!-- 🎂 Cake -->
+  <div class="cake">
+    <div class="layer"></div>
+    <div class="icing"></div>
+    <div class="candle">
+      <div class="flame"></div>
+    </div>
+  </div>
+
+  <!-- 🎵 Music -->
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+  </audio>
+
+</div>
+
+<style>
+  .cake {
+    position: relative;
+    width: 150px;
+    margin: 40px auto;
   }
+
+  .layer {
+    height: 80px;
+    background: #ff8a80;
+    border-radius: 10px;
+  }
+
+  .icing {
+    height: 20px;
+    background: #ff5252;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .candle {
+    width: 10px;
+    height: 30px;
+    background: white;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .flame {
+    width: 10px;
+    height: 10px;
+    background: gold;
+    border-radius: 50%;
+    animation: flicker 0.5s infinite alternate;
+  }
+
+  @keyframes flicker {
+    from { opacity: 1; }
+    to { opacity: 0.4; }
+  }
+</style>
+`;
+
+} else {
+document.getElementById("msg").innerText = "Wrong code 😜";
+clearPass();
+}
 }
 
 </script></body>
