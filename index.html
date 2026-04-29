@@ -1,44 +1,60 @@
 <!DOCTYPE html><html>
 <head>
-  <title>For Ayush ❤️</title>  <style>
-    body {
-      margin: 0;
-      font-family: Arial;
-      background: #f3e6ff;
-      text-align: center;
-    }
+<title>For Ayush ❤️</title><style>
+body {
+  margin: 0;
+  font-family: Arial;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f3e6ff, #e1bee7);
+}
 
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 20px;
-      width: 300px;
-      margin: 80px auto;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    }
+/* 💜 Card Center */
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  width: 300px;
 
-    .display {
-      background: #eee;
-      padding: 10px;
-      border-radius: 10px;
-      margin: 10px 0;
-      letter-spacing: 5px;
-    }
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-    .keypad {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 10px;
-    }
+  box-shadow: 0 0 25px rgba(186, 104, 200, 0.5);
+}
 
-    button {
-      padding: 12px;
-      border-radius: 50%;
-      border: none;
-      background: #ddd;
-      font-size: 18px;
-    }
-  </style></head><body><div class="card">  <h2>Enter Passcode 💌</h2>
+/* Display */
+.display {
+  background: #eee;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px 0;
+  letter-spacing: 5px;
+}
+
+/* Keypad */
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 10px;
+}
+
+button {
+  padding: 12px;
+  border-radius: 50%;
+  border: none;
+  background: #ddd;
+  font-size: 18px;
+}
+
+/* ❤️ Floating hearts */
+@keyframes float {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100vh); }
+}
+</style></head><body><div class="card">
+  <h2>Enter Passcode 💌</h2>
   <p>Hint: first date 💕</p>  <div id="display" class="display">--------</div>  <div class="keypad">
     <button onclick="press(1)">1</button>
     <button onclick="press(2)">2</button>
@@ -52,9 +68,23 @@
     <button onclick="clearPass()">❌</button>
     <button onclick="press(0)">0</button>
     <button onclick="check()">✔</button>
-  </div>  <p id="msg"></p></div><script>
+  </div>  <p id="msg"></p>
+</div><script>
 
 let pass = "";
+
+/* ❤️ Floating hearts on first page */
+for(let i=0; i<15; i++){
+  let heart = document.createElement("div");
+  heart.innerHTML = "❤️";
+  heart.style.position = "fixed";
+  heart.style.left = Math.random()*100 + "vw";
+  heart.style.top = Math.random()*100 + "vh";
+  heart.style.fontSize = (15 + Math.random()*20) + "px";
+  heart.style.opacity = 0.6;
+  heart.style.animation = "float 6s linear infinite";
+  document.body.appendChild(heart);
+}
 
 function press(n){
   if(pass.length < 8){
@@ -72,77 +102,80 @@ function clearPass(){
   update();
 }
 
+function playMusic(){
+  let music = document.getElementById("bgmusic");
+  music.play();
+}
+
 function check(){
+
 if(pass === "21072025"){
 
 document.body.innerHTML = `
-<div style="text-align:center; padding:30px; background:#f3e6ff; min-height:100vh; font-family:Arial;">
+<div style="text-align:center; padding:30px; background:linear-gradient(135deg,#f3e6ff,#e1bee7); min-height:100vh;">
 
-  <h1 style="color:#6a1b9a;">Happy Birthday Ayush 🎂❤️</h1>
+<h1 style="color:#6a1b9a;">Happy Birthday Ayush 🎂❤️</h1>
 
-  <p style="color:#6a1b9a;">You are my favorite person 💕</p>
-  <p style="color:#6a1b9a;">You make my life so beautiful 🥹</p>
-  <p style="color:#6a1b9a;">I love you always 💖</p>
+<p style="color:#6a1b9a;">You are my favorite person 💕</p>
+<p style="color:#6a1b9a;">You make my life so beautiful 🥹</p>
+<p style="color:#6a1b9a;">I love you always 💖</p>
 
-  <!-- 🎂 Cake -->
-  <div class="cake">
-    <div class="layer"></div>
-    <div class="icing"></div>
-    <div class="candle">
-      <div class="flame"></div>
-    </div>
-  </div>
+<!-- 🎂 Cake -->
+<div class="cake">
+  <div class="layer"></div>
+  <div class="icing"></div>
+  <div class="candle"><div class="flame"></div></div>
+</div>
 
-  <!-- 🎵 Music -->
-  <audio autoplay loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
-  </audio>
+<!-- 🎵 Button (important for mobile) -->
+<button onclick="playMusic()" 
+style="padding:10px 20px; border:none; border-radius:10px; background:#6a1b9a; color:white;">
+▶ Play Music 💖
+</button>
+
+<audio id="bgmusic" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio>
 
 </div>
 
 <style>
-  .cake {
-    position: relative;
-    width: 150px;
-    margin: 40px auto;
-  }
-
-  .layer {
-    height: 80px;
-    background: #ff8a80;
-    border-radius: 10px;
-  }
-
-  .icing {
-    height: 20px;
-    background: #ff5252;
-    border-radius: 10px 10px 0 0;
-  }
-
-  .candle {
-    width: 10px;
-    height: 30px;
-    background: white;
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .flame {
-    width: 10px;
-    height: 10px;
-    background: gold;
-    border-radius: 50%;
-    animation: flicker 0.5s infinite alternate;
-  }
-
-  @keyframes flicker {
-    from { opacity: 1; }
-    to { opacity: 0.4; }
-  }
-</style>
-`;
+.cake {
+  position: relative;
+  width: 150px;
+  margin: 40px auto;
+}
+.layer {
+  height: 80px;
+  background: #ff8a80;
+  border-radius: 10px;
+}
+.icing {
+  height: 20px;
+  background: #ff5252;
+  border-radius: 10px 10px 0 0;
+}
+.candle {
+  width: 10px;
+  height: 30px;
+  background: white;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.flame {
+  width: 10px;
+  height: 10px;
+  background: gold;
+  border-radius: 50%;
+  animation: flicker 0.5s infinite alternate;
+}
+@keyframes flicker {
+  from { opacity: 1; }
+  to { opacity: 0.4; }
+}
+</style>`;
 
 } else {
 document.getElementById("msg").innerText = "Wrong code 😜";
